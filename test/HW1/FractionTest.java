@@ -27,7 +27,7 @@ public class FractionTest {
   @Test
   public void testToDouble() {
     Fraction fraction = new FractionImpl(3, 4);
-    assertEquals(0.75, fraction.toDouble(), 0.001);
+    assertEquals(0.75, fraction.toDouble(), 0);
   }
 
   @Test
