@@ -61,4 +61,5 @@ public class FractionTest {
     assertTrue(fraction2.compareTo(fraction1) > 0);
     assertEquals(0, fraction1.compareTo(new FractionImpl(2, 4)));
   }
+
 }
