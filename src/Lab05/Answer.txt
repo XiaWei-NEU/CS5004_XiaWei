@@ -1,0 +1,7 @@
+1. Which parts of which files would have needed to be modified?
+A: With the use of the PerimeterComparator class, we wouldn't need to modify any of the existing files (Circle.java, Rectangle.java, Triangle.java, Shape.java, AbstractShape.java).
+
+
+2. If it were not for sharing code via AbstractShape.java, how many files would have needed modification (assuming you have concrete Shapes for Rectangle, Circle, and Triangle)?
+A: If it were not for sharing code via AbstractShape.java, we would still need to modify two files: PerimeterComparator.java and the class where we use it (e.g., ShapeDemo.java).
+
