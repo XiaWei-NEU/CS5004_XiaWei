@@ -112,6 +112,45 @@ public class HandImplTest {
   }
 
   @Test
+  public void test_GetHand2() {
+    HandImpl<Card> hand = new HandImpl<>();
+    Card card = new Card(Card.Suit.HEARTS, 10);
+    hand.add(card);
+
+    // Single-method named class
+    class Filter implements Predicate<Card> {
+      @Override
+      public boolean test(Card card) {
+        return card.getSuit() == Card.Suit.HEARTS;
+      }
+    }
+
+    // Anonymous class
+    Predicate<Card> filter = new Predicate<Card>() {
+      @Override
+      public boolean test(Card card) {
+        return card.getSuit() == Card.Suit.HEARTS;
+      }
+    };
+
+    // Lambda expression
+    Predicate<Card> lambdaFilter = cards -> card.getSuit() == Card.Suit.HEARTS;
+
+    HandImpl<Card> filteredHand1 = (HandImpl<Card>) hand.getHand(new Filter());
+    HandImpl<Card> filteredHand2 = (HandImpl<Card>) hand.getHand(filter);
+    HandImpl<Card> filteredHand3 = (HandImpl<Card>) hand.getHand(lambdaFilter);
+
+    assertEquals(1, filteredHand1.getSize());
+    assertEquals(card, filteredHand1.get(0));
+
+    assertEquals(1, filteredHand2.getSize());
+    assertEquals(card, filteredHand2.get(0));
+
+    assertEquals(1, filteredHand3.getSize());
+    assertEquals(card, filteredHand3.get(0));
+  }
+
+  @Test
   public void testRankSum() {
     HandImpl<Card> hand = new HandImpl<>();
     Card card1 = new Card(Card.Suit.HEARTS, 10);
