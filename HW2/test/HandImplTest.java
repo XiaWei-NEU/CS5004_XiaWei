@@ -117,12 +117,21 @@ public class HandImplTest {
     Card card1 = new Card(Card.Suit.HEARTS, 10);
     Card card2 = new Card(Card.Suit.CLUBS, 5);
     Card card3 = new Card(Card.Suit.HEARTS, 7);
+    Card card4 = new Card(Card.Suit.HEARTS, 4);
+    Card card5 = new Card(Card.Suit.CLUBS, 5);
+    Card card6 = new Card(Card.Suit.HEARTS, 6);
 
     hand.add(card1);
     hand.add(card2);
     hand.add(card3);
 
     assertEquals(22, hand.rankSum());
+
+    hand.add(card4);
+    hand.add(card5);
+    hand.add(card6);
+
+    assertEquals(37, hand.rankSum());
   }
 
   @Test

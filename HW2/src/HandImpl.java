@@ -1,8 +1,8 @@
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.Comparator;
+import java.util.Collections;
 
 /**
  * Implementation of the Hand interface using an ArrayList.
