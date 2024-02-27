@@ -5,7 +5,8 @@ import java.util.Objects;
  * Represents a playing card with a suit and rank.
  */
 public class Card implements Comparable<Card> {
-  public enum Suit { CLUBS, DIAMONDS, HEARTS, SPADES }
+
+  public enum Suit {CLUBS, DIAMONDS, HEARTS, SPADES}
 
   private Suit suit;
   private int rank;
@@ -26,7 +27,9 @@ public class Card implements Comparable<Card> {
    *
    * @return the suit of the card
    */
-  public Suit getSuit() { return suit; }
+  public Suit getSuit() {
+    return suit;
+  }
 
   /**
    * Gets the rank of the card.
@@ -95,8 +98,8 @@ public class Card implements Comparable<Card> {
    * Compares this card to another card based on rank.
    *
    * @param other the card to compare to
-   * @return a negative integer if this card is less than the other card,
-   *         zero if they are equal, or a positive integer if this card is greater
+   * @return a negative integer if this card is less than the other card, zero if they are equal, or
+   * a positive integer if this card is greater
    */
   @Override
   public int compareTo(Card other) {
