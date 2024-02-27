@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.Comparator;
 
 /**
  * Implementation of the Hand interface using an ArrayList.
@@ -55,10 +56,15 @@ public class HandImpl<C> implements Hand<C> {
     return cards.indexOf(c);
   }
 
+//  @Override
+//  public void sortHand(Function<C, Integer> comparisonFunction) {
+//    Collections.sort(cards, (c1, c2) -> comparisonFunction.apply(c1) - comparisonFunction.apply(c2));
+//  }
   @Override
-  public void sortHand(Function<C, Integer> comparisonFunction) {
-    Collections.sort(cards, (c1, c2) -> comparisonFunction.apply(c1) - comparisonFunction.apply(c2));
+  public void sortHand(Comparator<C> comparator) {
+    Collections.sort(cards, comparator);
   }
+
 
   @Override
   public Hand<C> getHand(Predicate<C> filter) {

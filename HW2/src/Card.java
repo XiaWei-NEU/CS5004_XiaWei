@@ -26,9 +26,7 @@ public class Card implements Comparable<Card> {
    *
    * @return the suit of the card
    */
-  public Suit getSuit() {
-    return suit;
-  }
+  public Suit getSuit() { return suit; }
 
   /**
    * Gets the rank of the card.

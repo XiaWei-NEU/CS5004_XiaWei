@@ -1,12 +1,13 @@
 import java.util.function.Function;
 import java.util.function.Predicate;
-
+import java.util.Comparator;
 /**
  * Represents a hand of cards that can hold various types of elements.
  *
  * @param <C> the type of elements in the hand
  */
 public interface Hand<C> {
+
   /**
    * Adds an element to the hand.
    *
@@ -56,9 +57,11 @@ public interface Hand<C> {
   /**
    * Sorts the hand based on a comparison function.
    *
-   * @param comparisonFunction the function used for comparison
+   * @param comparator the function used for comparison
    */
-  void sortHand(Function<C, Integer> comparisonFunction);
+  void sortHand(Comparator<C> comparator);
+//  void sortHand(Function<C, Integer> comparisonFunction);
+
 
   /**
    * Returns a subset of the hand based on a predicate.
@@ -78,7 +81,7 @@ public interface Hand<C> {
   /**
    * Maps the elements in the hand to a different type using a function.
    *
-   * @param f the mapping function
+   * @param f   the mapping function
    * @param <D> the type of elements after mapping
    * @return a new hand with elements of type D
    */

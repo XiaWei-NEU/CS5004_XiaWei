@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.Comparator;
 import org.junit.Test;
 
 public class HandImplTest {
@@ -84,7 +85,8 @@ public class HandImplTest {
     hand.add(card2);
     hand.add(card3);
 
-    hand.sortHand(Card::getRank);
+//    hand.sortHand(Card::getRank);
+    hand.sortHand(Comparator.comparingInt(Card::getRank));
     assertEquals(card2, hand.get(0));
     assertEquals(card3, hand.get(1));
     assertEquals(card1, hand.get(2));

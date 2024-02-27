@@ -34,6 +34,12 @@ public class CardTest {
   }
 
   @Test
+  public void testToString20() {
+    Card card = new Card(Card.Suit.HEARTS, 20);
+    assertEquals("Card{suit=HEARTS, rank=20}", card.toString());
+  }
+
+  @Test
   public void testEquals() {
     Card card1 = new Card(Card.Suit.SPADES, 7);
     Card card2 = new Card(Card.Suit.SPADES, 7);
