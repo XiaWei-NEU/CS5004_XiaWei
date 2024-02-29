@@ -1,10 +1,11 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.Comparator;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.Comparator;
 import org.junit.Test;
 
 public class HandImplTest {
@@ -148,6 +149,18 @@ public class HandImplTest {
 
     assertEquals(1, filteredHand3.getSize());
     assertEquals(card, filteredHand3.get(0));
+  }
+
+  @Test
+  public void test_get_negative_index() {
+    HandImpl<Card> hand = new HandImpl<>();
+    Card card1 = new Card(Card.Suit.HEARTS, 10);
+    Card card2 = new Card(Card.Suit.CLUBS, 5);
+
+    hand.add(card1);
+    hand.add(card2);
+
+    assertNull(hand.get(-1));
   }
 
   @Test

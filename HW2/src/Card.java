@@ -18,6 +18,12 @@ public class Card implements Comparable<Card> {
    * @param rank the rank of the card
    */
   public Card(Suit suit, int rank) {
+    if(suit == null) {
+      throw new IllegalArgumentException("Suit cannot be null");
+    }
+    if (rank < 1 || rank > 13) {
+      throw new IllegalArgumentException("Invalid rank: " + rank);
+    }
     this.suit = suit;
     this.rank = rank;
   }
