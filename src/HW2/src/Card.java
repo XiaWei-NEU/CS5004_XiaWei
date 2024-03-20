@@ -52,11 +52,7 @@ public class Card implements Comparable<Card> {
    * @return the color of the card ("RED" or "BLACK")
    */
   public String getColor() {
-    if (suit == Suit.DIAMONDS || suit == Suit.HEARTS) {
-      return "RED";
-    } else {
-      return "BLACK";
-    }
+    return (suit == Suit.DIAMONDS || suit == Suit.HEARTS) ? "RED" : "BLACK";
   }
 
   /**
@@ -80,12 +76,9 @@ public class Card implements Comparable<Card> {
    */
   @Override
   public boolean equals(Object obj) {
-    if (this == obj) {
-      return true;
-    }
-    if (obj == null || getClass() != obj.getClass()) {
-      return false;
-    }
+    if (this == obj) return true;
+    if (obj == null || getClass() != obj.getClass()) return false;
+
     Card other = (Card) obj;
     return this.suit == other.suit && this.rank == other.rank;
   }

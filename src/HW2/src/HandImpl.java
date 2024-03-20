@@ -66,9 +66,8 @@ public class HandImpl<C> implements Hand<C> {
    * @return the size of the cards collection
    */
   @Override
-  public int getSize() {
-    return cards.size();
-  }
+  public int getSize() {return cards.size();}
+
 
   /**
    * Check if the collection of cards is empty.
@@ -76,9 +75,7 @@ public class HandImpl<C> implements Hand<C> {
    * @return true if the collection is empty, false otherwise
    */
   @Override
-  public boolean isEmpty() {
-    return cards.isEmpty();
-  }
+  public boolean isEmpty() {return cards.isEmpty();}
 
   /**
    * A description of the entire Java function.
@@ -87,14 +84,8 @@ public class HandImpl<C> implements Hand<C> {
    * @return description of return value
    */
   @Override
-  public int find(C c) {
-    return cards.indexOf(c);
-  }
+  public int find(C c) {return cards.indexOf(c);}
 
-  //  @Override
-//  public void sortHand(Function<C, Integer> comparisonFunction) {
-//    Collections.sort(cards, (c1, c2) -> comparisonFunction.apply(c1) - comparisonFunction.apply(c2));
-//  }
 
   /**
    * sort the hand using the specified comparator
@@ -116,11 +107,12 @@ public class HandImpl<C> implements Hand<C> {
   @Override
   public Hand<C> getHand(Predicate<C> filter) {
     HandImpl<C> filteredHand = new HandImpl<>();
-    for (C card : cards) {
-      if (filter.test(card)) {
-        filteredHand.add(card);
-      }
-    }
+//    for (C card : cards) {
+//      if (filter.test(card)) {
+//        filteredHand.add(card);
+//      }
+//    }
+    cards.stream().filter(filter).forEach(filteredHand::add);
     return filteredHand;
   }
 
@@ -131,12 +123,13 @@ public class HandImpl<C> implements Hand<C> {
    */
   @Override
   public int rankSum() {
-    int sum = 0;
-    for (C card : cards) {
-      // Assuming the card has a method to get the rank
-      sum += ((Card) card).getRank();
-    }
-    return sum;
+//    int sum = 0;
+//    for (C card : cards) {
+//      sum += ((Card) card).getRank();
+//    }
+//    return sum;
+
+    return cards.stream().mapToInt(c -> ((Card) c).getRank()).sum();
   }
 
   /**
@@ -148,9 +141,10 @@ public class HandImpl<C> implements Hand<C> {
   @Override
   public <D> Hand<D> getMap(Function<C, D> f) {
     HandImpl<D> mappedHand = new HandImpl<>();
-    for (C card : cards) {
-      mappedHand.add(f.apply(card));
-    }
+//    for (C card : cards) {
+//      mappedHand.add(f.apply(card));
+//    }
+    cards.stream().map(f).forEach(mappedHand::add);
     return mappedHand;
   }
 }
