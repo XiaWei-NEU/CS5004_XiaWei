@@ -1,0 +1,4 @@
+Suggestions:
+1. The game adds a scoring function;
+2. Add a pause button to the game;
+3. Add hashCode method to Coordinate program
